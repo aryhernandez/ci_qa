@@ -1,9 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('') {
-      steps {
-        echo 'Prueba'
+    stage('error') {
+      parallel {
+        stage('error1') {
+          steps {
+            echo 'Prueba'
+          }
+        }
+        stage('') {
+          steps {
+            sh '''#!/bin/bash
+echo "HOLA"'''
+          }
+        }
       }
     }
   }
